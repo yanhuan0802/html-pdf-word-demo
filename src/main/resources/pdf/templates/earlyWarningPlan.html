@@ -10,18 +10,20 @@
 <head>
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
-<!--    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" href="../../static/css/style.css"></link>-->
-    <style  th:fragment="style">
+    <!--    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" href="../../static/css/style.css"></link>-->
+    <style th:fragment="style">
         * {
             padding: 0;
             margin: 0;
         }
-        .clear::after{
+
+        .clear::after {
             display: block;
             content: "";
             clear: both;
         }
-        .mian{
+
+        .mian {
             width: 100vw;
             height: 100vh;
             padding: 15px;
@@ -30,85 +32,101 @@
             box-sizing: border-box;
 
         }
-        .mian-inline{
+
+        .mian-inline {
             width: 900px;
             margin: auto;
         }
-        .content-one{
+
+        .content-one {
             width: 100%;
             margin-bottom: 15px;
         }
-        .title{
+
+        .title {
             font-size: 15px;
             color: #409eff;
             font-weight: bold;
         }
 
-        .container-one,.container-two{
-            width:100%;
+        .container-one, .container-two {
+            width: 100%;
             padding: 12px;
         }
-        .row{
+
+        .row {
             width: 100%;
             padding: 10px 0;
         }
-        .label{
+
+        .label {
             float: left;
             width: 80px;
             color: #606266;
             font-weight: bold;
             font-size: 14px;
         }
-        .row-content{
+
+        .row-content {
             float: left;
             width: 80%;
         }
-        .table-content{
+
+        .table-content {
             width: 650px;
         }
-        table{
+
+        table {
             width: 650px;
             font-size: 12px;
 
         }
-        tr{
+
+        tr {
             height: 40px;
             line-height: 40px;
         }
-        th{
-            border:1px solid #ebeef5;
+
+        th {
+            border: 1px solid #ebeef5;
             background: #f6f6f6;
             text-align: left;
             padding: 0 8px;
             color: #555;
         }
-        td{
-            border:1px solid #ebeef5;
-            border-top:none;
+
+        td {
+            border: 1px solid #ebeef5;
+            border-top: none;
             padding: 0 8px;
 
         }
-        .content-two{
+
+        .content-two {
             width: 100%;
         }
-        .circle{
+
+        .circle {
             display: inline-block;
-            width: 12px ;
+            width: 12px;
             height: 12px;
             border-radius: 100%;
-            background:#409eff ;
+            background: #409eff;
             vertical-align: middle;
             position: relative;
         }
-        .text{
+
+        .text {
             display: inline-block;
             padding-left: 30px;
             vertical-align: middle;
         }
-        .list{
+
+        .list {
             margin-bottom: 30px;
         }
-        .line{
+
+        .line {
             position: absolute;
             left: 5px;
             top: 12px;
@@ -128,62 +146,33 @@
             <div class="container-one">
                 <div class="row clear">
                     <div class="label">预案名称：</div>
-                    <div class="row-content" th:text="${planTitle}" >应急预案</div>
+                    <div class="row-content" th:text="${planTitle}">应急预案</div>
                 </div>
-                <div class="row clear" >
+                <div class="row clear">
                     <div class="label">使用情形：</div>
                     <div class="row-content table-content">
-                        <table cellspacing="0" cellpadding="0" >
+                        <table cellspacing="0" cellpadding="0">
                             <tr>
                                 <th>序号</th>
                                 <th>防区</th>
                                 <th>设备区域</th>
                                 <th>事件类型</th>
                             </tr>
-                            <tr th:each="item: ${earlyWarnAreaConfParamList}" >
+                            <tr th:each="item: ${earlyWarnAreaConfParamList}">
                                 <td>1</td>
-                                <td th:text="${item.defenseAreaName}" >五行防区</td>
-                                <td th:text="${item.areaName}" >声强异常告警</td>
-                                <td th:text="${item.eventTypeName}" >事件类型</td>
+                                <td th:text="${item.defenseAreaName}">五行防区</td>
+                                <td th:text="${item.areaName}">声强异常告警</td>
+                                <td th:text="${item.eventTypeName}">事件类型</td>
                             </tr>
                         </table>
                     </div>
                 </div>
                 <div class="row clear">
                     <div class="label">预案内容：</div>
-                    <div class="row-content" th:utext="${planDescribe}" >应急预案</div>
+                    <div class="row-content" th:utext="${planDescribe}">应急预案</div>
                 </div>
             </div>
         </div>
-<!--        <div class="content-two">-->
-<!--            <div class="title">-->
-<!--                操作信息-->
-<!--            </div>-->
-<!--            <div class="container-two">-->
-<!--                <div class="row clear">-->
-<!--                    <div class="label">操作信息：</div>-->
-<!--                    <div class="row-content">-->
-<!--                        <div class="list">-->
-<!--                                <span class="circle">-->
-<!--                                    <div class="line"></div>-->
-<!--                                </span>-->
-<!--                            <span class="text"> 张先森,2020-12-24 11:17,创建数据 </span>-->
-<!--                        </div>-->
-<!--                        <div class="list">-->
-<!--                                <span class="circle">-->
-<!--                                    <div class="line"></div>-->
-<!--                                </span>-->
-<!--                            <span class="text"> 张先森,2020-12-24 11:17,创建数据 </span>-->
-
-<!--                        </div>-->
-<!--                        <div class="list">-->
-<!--                            <span class="circle"></span>-->
-<!--                            <span class="text"> 张先森,2020-12-24 11:17,创建数据 </span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
 
 </div>
