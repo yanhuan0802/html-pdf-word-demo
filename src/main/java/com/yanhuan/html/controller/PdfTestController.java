@@ -57,7 +57,7 @@ public class PdfTestController {
     public void pdfAll(HttpServletResponse response) {
         HashMap<String, Map<String, Object>> map = new HashMap<>();
         for (int i = 1; i <= 10; i++) {
-            map.put("应急预案" + 1, this.buildSingleTestData());
+            map.put("应急预案" + i, this.buildSingleTestData());
         }
         try {
             PdfUtil.exportPdfBatch(response, "应急预案", "earlyWarningPlan", map);
@@ -73,7 +73,7 @@ public class PdfTestController {
     public void wordAll(HttpServletResponse response) {
         HashMap<String, Map<String, Object>> map = new HashMap<>();
         for (int i = 1; i <= 10; i++) {
-            map.put("应急预案" + 1, this.buildSingleTestData());
+            map.put("应急预案" + i, this.buildSingleTestData());
         }
         try {
             WordUtil.exportDocBatch(response, "应急预案", "earlyWarningPlan", map);
@@ -104,7 +104,7 @@ public class PdfTestController {
         HashMap<String, Object> map = new HashMap<>();
         map.put("planTitle", "应急预案一");
         map.put("earlyWarnAreaConfParamList", Arrays.asList(param1, param2, param3));
-        map.put("planDescribe", ThymeleafUtil.richTextToHtmlStr(""));
+        map.put("planDescribe", ThymeleafUtil.richTextToHtmlStr("\"<p>应急预案方案</p>\\n<p>第一步</p>\\n<p>第二步：</p>\\n<p>第三步：</p>\""));
         return map;
     }
 }
